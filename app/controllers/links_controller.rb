@@ -4,9 +4,13 @@ class LinksController < ApplicationController
   end
 
   def create
-    Link.create(link_params)
+    @short_url = Link.create(link_params)
     # flash[:notice] = 'Short link has been successfully generated'
-    redirect_to links_path
+    render :show
+  end
+
+  def show
+    redirect_to "http://#{(Link.find_by shorten: params[:id]).origin}"
   end
 
   private
