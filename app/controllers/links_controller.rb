@@ -4,7 +4,11 @@ class LinksController < ApplicationController
   end
 
   def create
-    @short_url = Link.create(link_params)
+    unless (Link.find_by origin: params[:origin]).nil?
+      @short_url = Link.find_by origin: params[:origin]
+    else
+      @short_url = Link.create(link_params)
+    end
     # flash[:notice] = 'Short link has been successfully generated'
     render :show
   end
@@ -17,7 +21,7 @@ class LinksController < ApplicationController
   def calc_n
     return 2 if Link.all.count <= 3249
     return 3 if Link.all.count <= 185193
-    return 5 if Link.all.count <= 10_556_001
+    return 4 if Link.all.count <= 10_556_001
   end
 
   def generate_safe_link(n)
