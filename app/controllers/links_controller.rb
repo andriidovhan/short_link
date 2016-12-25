@@ -11,7 +11,7 @@ class LinksController < ApplicationController
       @short_url = Link.create(link_params)
     end
 
-    # flash[:notice] = 'Short link has been successfully generated'
+    flash[:notice] = 'Short link has been successfully generated'
     render :show
   end
 

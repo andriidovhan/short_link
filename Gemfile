@@ -50,3 +50,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml-rails", "~> 0.9"
 gem "pry"
 gem "awesome_print"
+# Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.3.6'
