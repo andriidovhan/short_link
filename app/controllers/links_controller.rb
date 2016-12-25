@@ -4,11 +4,13 @@ class LinksController < ApplicationController
   end
 
   def create
+    # binding.pry;
     unless (Link.find_by origin: params[:origin]).nil?
       @short_url = Link.find_by origin: params[:origin]
     else
       @short_url = Link.create(link_params)
     end
+
     # flash[:notice] = 'Short link has been successfully generated'
     render :show
   end
