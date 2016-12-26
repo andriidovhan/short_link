@@ -36,12 +36,12 @@ describe Link do
 
     it 'create link and should not be created with the same origin param' do
       create_correct_link
-      expect {Link.create!(origin: 'origin-unique.com', shorten: 'diff-shorten')}.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Origin has already been taken')
+      expect { Link.create!(origin: 'origin-unique.com', shorten: 'diff-shorten') }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Origin has already been taken')
     end
 
     it 'create link and should not be created with the same shorten param' do
       create_correct_link
-      expect {Link.create!(origin: 'diff-origin.com', shorten: 'shorten-unique')}.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Shorten has already been taken')
+      expect { Link.create!(origin: 'diff-origin.com', shorten: 'shorten-unique') }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Shorten has already been taken')
     end
 
     it 'should not be created the full same link' do

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'links#index'
-  
-  resources :links, only: %i[create show]
+
+  post '/', to: 'links#create'
+  get '/:shorten', to: 'links#show'
 end

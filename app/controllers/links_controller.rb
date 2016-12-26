@@ -16,9 +16,14 @@ class LinksController < ApplicationController
   end
 
   def show
-    @link = Link.find_by(shorten: params[:id])
+    @link = Link.find_by(shorten: params[:shorten])
 
-    redirect_to "http://#{link.origin}"
+    if @link
+      redirect_to "http://#{link.origin}"
+    else
+      flash[:error] = 'Not found'
+      redirect_to root_path
+    end
   end
 
   def update
