@@ -1,9 +1,0 @@
-%h1
-  = "Please enter your link"
-
-= form_tag '/links' do
-  .form-group.row
-    .col-xs-3
-      %input.form-control{type: 'text', name: 'origin', placeholder: 'example.com'}
-
-  = submit_tag 'Convert', class: "btn btn-success"

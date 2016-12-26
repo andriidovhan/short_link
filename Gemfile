@@ -52,3 +52,5 @@ gem "pry"
 gem "awesome_print"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rspec-rails', '~> 3.5'
+gem "slim-rails"
+gem 'simple_form'

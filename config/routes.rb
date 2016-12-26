@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => redirect('/links')
+  root to: 'links#index'
 
-  resources :links, only: [:index, :create, :show]
+  resources :links, only: %i[create show]
 end

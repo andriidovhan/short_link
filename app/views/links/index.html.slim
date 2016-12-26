@@ -1,0 +1,5 @@
+= render 'form'
+- if link.valid?
+  = "Please, copy the link below and put it into the address browser bar"
+  h1
+    = link_to link.shorten, link
