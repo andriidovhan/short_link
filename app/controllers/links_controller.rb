@@ -21,6 +21,10 @@ class LinksController < ApplicationController
     redirect_to "http://#{link.origin}"
   end
 
+  def update
+    create
+  end
+
   private
 
   def link

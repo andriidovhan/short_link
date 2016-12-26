@@ -1,10 +1,5 @@
 h1
   = "Please enter your link"
-/= form_for link do |f|
-/  .form-group.row
-/    .col-xs-3
-/      = f.text_field :origin
-/  = submit_tag 'Convert', class: "btn btn-success"
 
 = simple_form_for(link, html: { class: 'form-inline' }) do |f|
   = f.error_notification
