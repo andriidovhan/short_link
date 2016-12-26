@@ -4,10 +4,10 @@ require 'rails_helper'
 
 describe Link do
   context 'valid params' do
-    let(:create_link) { Link.create!(origin: 'tets-link.com', shorten: 'sdadTERWDASxdc') }
+    let(:create_link) { Link.create!(origin: 'test-link.com', shorten: 'sdadTERWDASxdc') }
 
     it 'create link' do
-      expect(Link.create!(origin: 'tets-link.com', shorten: 'sdadTERWDASxdc')).to change{ Link.count }.by(1)
+      expect{ create_link }.to change{ Link.count }.by(1)
     end
   end
 
@@ -17,7 +17,7 @@ describe Link do
     let(:shorten_empty) { Link.create!(origin: 'test-link.com', shorten: '') }
     let(:both_empty) { Link.create!(origin: '', shorten: '') }
     let(:create_correct_link) {Link.create!(origin: 'origin-unique.com', shorten: 'shorten-unique')}
-
+    
     it 'empty origin param' do
       expect{ origin_empty }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Origin can\'t be blank, Origin is too short (minimum is 4 characters)')
     end
